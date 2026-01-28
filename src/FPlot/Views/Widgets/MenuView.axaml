@@ -1,0 +1,168 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:FPlot.ViewModels"
+             mc:Ignorable="d"
+             x:Class="FPlot.Views.MenuView"
+             x:DataType="viewModels:MainViewModel">
+    <UserControl.Resources>
+        <StreamGeometry x:Key="AddPointResx">
+            M14.4596 14.4596
+            C14.4596 14.7664 14.3377 15.0606 14.1207 15.2776
+            C13.9038 15.4945 13.6096 15.6164 13.3028 15.6164
+            H2.89191
+            C2.58511 15.6164 2.29088 15.4945 2.07394 15.2776
+            C1.85701 15.0606 1.73514 14.7664 1.73514 14.4596
+            V1.73516
+            C1.73514 1.42837 1.85701 1.13414 2.07394 0.917205
+            C2.29088 0.70027 2.58511 0.578395 2.89191 0.578395
+            H8.67575
+            L14.4596 6.36225
+            V14.4596
+            Z
+            M7.519 6.6514
+            V10.7001
+            M5.49465 8.67575
+            H9.5433
+        </StreamGeometry>
+        <StreamGeometry x:Key="RemovePointResx">
+            M14.4596 14.4596
+            C14.4596 14.7664 14.3377 15.0606 14.1208 15.2775
+            C13.9039 15.4945 13.6096 15.6164 13.3028 15.6164
+            H2.89192
+            C2.58512 15.6164 2.2909 15.4945 2.07396 15.2775
+            C1.85703 15.0606 1.73516 14.7664 1.73516 14.4596
+            V1.73515
+            C1.73516 1.42836 1.85703 1.13413 2.07396 0.9172
+            C2.2909 0.70026 2.58512 0.57839 2.89192 0.57839
+            H8.67575
+            L14.4596 6.36225
+            V14.4596
+            Z
+            M5.49465 8.67575
+            H9.54335
+        </StreamGeometry>
+        <StreamGeometry x:Key="CopyPointsResx">
+            M10.9893 1.73517
+            H12.7245
+            C13.0313 1.73517 13.32545 1.85704 13.5424 2.07397
+            C13.75935 2.29091 13.8812 2.58514 13.8812 2.89193
+            V14.4596
+            C13.8812 14.7664 13.75935 15.0606 13.5424 15.2776
+            C13.32545 15.4945 13.0313 15.6164 12.7245 15.6164
+            H3.47031
+            C3.16351 15.6164 2.86929 15.4945 2.65235 15.2776
+            C2.43541 15.0606 2.31354 14.7664 2.31354 14.4596
+            V2.89193
+            C2.31354 2.58514 2.43541 2.29091 2.65235 2.07397
+            C2.86929 1.85704 3.16351 1.73517 3.47031 1.73517
+            H5.20545
+            M9.83255 0.578395
+            H6.36225
+            C5.72335 0.578395 5.20545 1.096295 5.20545 1.73516
+            V2.313545
+            C5.20545 2.95241 5.72335 3.470315 6.36225 3.470315
+            H9.83255
+            C10.4714 3.470315 10.9893 2.95241 10.9893 2.313545
+            V1.73516
+            C10.9893 1.096295 10.4714 0.578395 9.83255 0.578395
+            Z
+            M8.0974 6.9406
+            V11.5677
+            M10.4109 9.25415
+            H5.78385
+        </StreamGeometry>
+        <StreamGeometry x:Key="PastePointsResx">
+            M10.9893 1.73516
+            H12.7245
+            C13.0313 1.73516 13.3254 1.85703 13.5424 2.07397
+            C13.7593 2.2909 13.8812 2.58513 13.8812 2.89193
+            V14.4596
+            C13.8812 14.7664 13.7593 15.0606 13.5424 15.2775
+            C13.3254 15.4945 13.0313 15.6163 12.7245 15.6163
+            H3.47031
+            C3.16351 15.6163 2.86929 15.4945 2.65235 15.2775
+            C2.43541 15.0606 2.31354 14.7664 2.31354 14.4596
+            V2.89193
+            C2.31354 2.58513 2.43541 2.2909 2.65235 2.07397
+            C2.86929 1.85703 3.16351 1.73516 3.47031 1.73516
+            H5.20545
+            M9.8325 0.57839
+            H6.3622
+            C5.72335 0.57839 5.20545 1.09629 5.20545 1.73516
+            V2.31354
+            C5.20545 2.95241 5.72335 3.47031 6.3622 3.47031
+            H9.8325
+            C10.4714 3.47031 10.9893 2.95241 10.9893 2.31354
+            V1.73516
+            C10.9893 1.09629 10.4714 0.57839 9.8325 0.57839
+            Z
+            M5.20545 9.83255
+            L7.519 11.5677
+            L10.4109 6.9406
+        </StreamGeometry>
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="Border">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+        </Style>
+        <Style Selector="Path">
+            <Setter Property="Stroke" Value="Black"/>
+            <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="Fill" Value="Transparent"/>
+            <Setter Property="RenderTransform" Value="scale(1)"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition
+                        Property="RenderTransform"
+                        Duration="0:0:0.40"
+                        Easing="CircularEaseOut"/>
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="Path:pointerover">
+            <Setter Property="RenderTransform" Value="scale(1.5)"/>
+        </Style>
+    </UserControl.Styles>
+    <Grid ColumnDefinitions="*,*">
+        <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Border ToolTip.Tip="Add point">
+                <Path Data="{DynamicResource AddPointResx}"/>
+                <Interaction.Behaviors>
+                    <EventTriggerBehavior EventName="PointerPressed">
+                        <InvokeCommandAction Command="{Binding AddPointCommand}"/>
+                    </EventTriggerBehavior>
+                </Interaction.Behaviors>
+            </Border>
+            <Border ToolTip.Tip="Remove point (unavailable)">
+                <Path Data="{DynamicResource RemovePointResx}"/>
+                <Interaction.Behaviors>
+                    <EventTriggerBehavior EventName="PointerPressed">
+                        <InvokeCommandAction Command="{Binding RemovePointCommand}"/>
+                    </EventTriggerBehavior>
+                </Interaction.Behaviors>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Border ToolTip.Tip="Copy points">
+                <Path Data="{DynamicResource CopyPointsResx}"/>
+                <Interaction.Behaviors>
+                    <EventTriggerBehavior EventName="PointerPressed">
+                        <InvokeCommandAction Command="{Binding CopyCommand}"></InvokeCommandAction>
+                    </EventTriggerBehavior>
+                </Interaction.Behaviors>
+            </Border>
+            <Border ToolTip.Tip="Paste points">
+                <Path Data="{DynamicResource PastePointsResx}"/>
+                <Interaction.Behaviors>
+                    <EventTriggerBehavior EventName="PointerPressed">
+                        <InvokeCommandAction Command="{Binding PasteCommand}"></InvokeCommandAction>
+                    </EventTriggerBehavior>
+                </Interaction.Behaviors>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

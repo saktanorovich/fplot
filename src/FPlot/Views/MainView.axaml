@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:FPlot.ViewModels"
+             xmlns:views="clr-namespace:FPlot.Views"
+             mc:Ignorable="d"
+             x:Class="FPlot.Views.MainView"
+             x:DataType="viewModels:MainViewModel">
+    <Grid Margin="4" RowDefinitions="*,Auto">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,Auto,*">
+            <Grid Grid.Column="0">
+                <Grid RowDefinitions="Auto,*">
+                    <views:MenuView Grid.Row="0" x:Name="MenuView" DataContext="{Binding}"/>
+                    <views:GridView Grid.Row="1" x:Name="GridView" DataContext="{Binding Grid}"/>
+                </Grid>
+            </Grid>
+            <Grid Column="1" Width="20" />
+            <Grid Grid.Column="2">
+                <views:PlotView x:Name="PlotView" DataContext="{Binding Plot}"/>
+            </Grid>
+        </Grid>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="{Binding SelectedPath}" IsEnabled="False"></TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

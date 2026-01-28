@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="using:FPlot.ViewModels"
+             xmlns:converters="using:FPlot.Converters"
+             mc:Ignorable="d"
+             x:Class="FPlot.Views.GridView"
+             x:DataType="viewModels:GridViewModel">
+    <UserControl.Styles>
+        <Style Selector="TextBox.default">
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="TextAlignment" Value="Right"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+    </UserControl.Styles>
+    <Grid>
+        <DataGrid x:Name="GridControl"
+                  ItemsSource="{Binding Points}"
+                  GridLinesVisibility="All"
+                  CanUserSortColumns="False"
+                  AutoGenerateColumns="False"
+                  SelectionMode="Single"
+                  BorderBrush="LightGray"
+                  BorderThickness="1"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Styles>
+                <Style Selector="DataGridColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+                <Style Selector="DataGridRow">
+                    <Setter Property="Height" Value="20"></Setter>
+                </Style>
+            </DataGrid.Styles>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="X Value" FontSize="14" FontWeight="Bold"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DockPanel HorizontalAlignment="Right"
+                                       VerticalAlignment="Center">
+                                <TextBox Classes="default"
+                                         Text="{Binding Path=X, Converter={converters:DoubleToStringConverter}}"
+                                         Foreground="{Binding XColor}">
+                                </TextBox>
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Y Value" FontSize="14" FontWeight="Bold"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DockPanel HorizontalAlignment="Right"
+                                       VerticalAlignment="Center">
+                                <TextBox Classes="default"
+                                         Text="{Binding Path=Y, Converter={converters:DoubleToStringConverter}}"
+                                         Foreground="{Binding YColor}"
+                                         IsReadOnly="False">
+                                </TextBox>
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

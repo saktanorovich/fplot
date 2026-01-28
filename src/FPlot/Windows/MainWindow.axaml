@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:FPlot.ViewModels"
+        xmlns:views="clr-namespace:FPlot.Views"
+        mc:Ignorable="d"
+        MinWidth="800"
+        MinHeight="400"
+        x:Class="FPlot.Windows.MainWindow"
+        x:DataType="viewModels:MainViewModel"
+        Title="FPlot">
+    <NativeMenu.Menu>
+        <NativeMenu>
+            <NativeMenuItem Header="_File">
+                <NativeMenu>
+                    <NativeMenuItem Header="Open.." Command="{Binding OpenFileCommand}" Gesture="Meta+O"/>
+                    <NativeMenuItemSeparator/>
+                    <NativeMenuItem Header="Save" Command="{Binding SaveFileCommand}" Gesture="Meta+S"/>
+                    <NativeMenuItem Header="Save As.." Command="{Binding SaveAsFileCommand}" Gesture="Meta+Shift+S"/>
+                </NativeMenu>
+            </NativeMenuItem>
+            <NativeMenuItem Header="_Edit">
+                <NativeMenu>
+                    <NativeMenuItem Header="Copy" Command="{Binding CopyCommand}" Gesture="Meta+C"/>
+                    <NativeMenuItem Header="Paste" Command="{Binding PasteCommand}" Gesture="Meta+V"/>
+                </NativeMenu>
+            </NativeMenuItem>
+        </NativeMenu>
+    </NativeMenu.Menu>
+    <views:MainView x:Name="MainView"/>
+</Window>
